@@ -1,0 +1,13 @@
+---
+title: "Brain-Computer Interface Movement Decoding"
+author: "Ray Hoggard"
+format: html
+---
+
+# Introduction
+
+Welcome to my project. Here's an equation: $f(x) = w^T x + b$.
+
+```{python}
+import numpy as np
+np.random.rand(5)

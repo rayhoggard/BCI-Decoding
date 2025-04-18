@@ -1,0 +1,17 @@
+project:
+  type: website
+  output-dir: docs  # <- This is key for GitHub Pages
+
+website:
+  title: "BCI Movement Decoding"
+  navbar: false     # You can set true later if you want one
+  page-navigation: true
+
+format:
+  html:
+    toc: true
+    number-sections: true
+    theme: cosmo
+    include-in-header:
+      - text: |
+          <meta name="viewport" content="width=device-width, initial-scale=1">
