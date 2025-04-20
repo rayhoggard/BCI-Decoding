@@ -11,6 +11,27 @@
     "href": "index.html",
     "title": "Brain-Computer Interface Movement Decoding",
     "section": "",
-    "text": "1 Introduction\nWelcome to my project. Here’s an equation: \\(f(x) = w^T x + b\\).\nimport numpy as np np.random.rand(5)"
+    "text": "Welcome to my project. Here’s an equation: \\(f(x) = w^T x + b\\).\n\n\nMore details about the background…"
+  },
+  {
+    "objectID": "index.html#background",
+    "href": "index.html#background",
+    "title": "Brain-Computer Interface Movement Decoding",
+    "section": "",
+    "text": "More details about the background…"
+  },
+  {
+    "objectID": "index.html#data-acquisition",
+    "href": "index.html#data-acquisition",
+    "title": "Brain-Computer Interface Movement Decoding",
+    "section": "2.1 Data Acquisition",
+    "text": "2.1 Data Acquisition\nDetails on how data was acquired…"
+  },
+  {
+    "objectID": "index.html#signal-processing",
+    "href": "index.html#signal-processing",
+    "title": "Brain-Computer Interface Movement Decoding",
+    "section": "2.2 Signal Processing",
+    "text": "2.2 Signal Processing\nDetails on signal processing steps…\n#| label: fig-random-data #| fig-cap: “Plot of five random numbers.” import numpy as np import matplotlib.pyplot as plt\ndata = np.random.rand(5) print(data) # Output the data if needed\nplt.figure() plt.plot(data, marker=‘o’) plt.title(“Random Data”) plt.xlabel(“Index”) plt.ylabel(“Value”) plt.grid(True) plt.show()"
   }
 ]
