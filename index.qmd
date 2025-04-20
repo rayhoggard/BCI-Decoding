@@ -1,18 +1,14 @@
 ---
 title: "Brain-Computer Interface Movement Decoding"
 author: "Ray Hoggard"
-date: today 
+affiliation: "Duke University" 
 format: html 
 toc: true
 toc-depth: 3 
 abstract: |  # Use '|' for multi-line abstracts
   This paper explores methods for decoding movement intentions from brain signals using Brain-Computer Interfaces (BCIs). We investigate common signal processing techniques and machine learning models applied to electroencephalography (EEG) data. The goal is to develop a robust system capable of translating neural activity into control signals for assistive devices. Preliminary results show promising accuracy using a combination of feature extraction and support vector machines.
-keywords: 
-  - Brain-Computer Interface
-  - BCI
-  - Movement Decoding
-  - EEG
-  - Machine Learning
+bibliography: references.bib
+csl: apa.csl # APA style
 ---
 
 # Introduction
