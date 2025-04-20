@@ -7,9 +7,6 @@ website:
   navbar: false     # You can set true later if you want one
   page-navigation: true
 
-bibliography: references.bib
-csl: apa.csl
-
 format:
   html:
     toc: true

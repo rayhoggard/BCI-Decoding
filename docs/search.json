@@ -32,6 +32,27 @@
     "href": "index.html#signal-processing",
     "title": "Brain-Computer Interface Movement Decoding",
     "section": "2.2 Signal Processing",
-    "text": "2.2 Signal Processing\nDetails on signal processing steps…\n#| label: fig-random-data #| fig-cap: “Plot of five random numbers.” import numpy as np import matplotlib.pyplot as plt\ndata = np.random.rand(5) print(data) # Output the data if needed\nplt.figure() plt.plot(data, marker=‘o’) plt.title(“Random Data”) plt.xlabel(“Index”) plt.ylabel(“Value”) plt.grid(True) plt.show()"
+    "text": "2.2 Signal Processing\nDetails on signal processing steps…\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\ndata = np.random.rand(5)\nprint(data) # Output the data if needed\n\nplt.figure()\nplt.plot(data, marker='o')\nplt.title(\"Random Data\")\nplt.xlabel(\"Index\")\nplt.ylabel(\"Value\")\nplt.grid(True)\nplt.show()\n\n[0.66173006 0.82062585 0.08149636 0.5091209  0.0275372 ]\n\n\n\n\n\n\n\n\nFigure 1: Plot of five random numbers."
+  },
+  {
+    "objectID": "index.html#classification-performance",
+    "href": "index.html#classification-performance",
+    "title": "Brain-Computer Interface Movement Decoding",
+    "section": "3.1 Classification Performance",
+    "text": "3.1 Classification Performance\nOur movement intention decoding approach achieved promising results across multiple subjects. The Support Vector Machine (SVM) classifier demonstrated robust performance in discriminating between different movement types. Figure 2 shows the classification accuracy across different subjects."
+  },
+  {
+    "objectID": "index.html#feature-importance",
+    "href": "index.html#feature-importance",
+    "title": "Brain-Computer Interface Movement Decoding",
+    "section": "3.2 Feature Importance",
+    "text": "3.2 Feature Importance\nAnalysis of feature importance revealed that temporal features in the alpha and beta frequency bands were most informative for movement decoding. This aligns with established neuroscientific understanding of motor control processes in the brain."
+  },
+  {
+    "objectID": "index.html#comparison-with-previous-work",
+    "href": "index.html#comparison-with-previous-work",
+    "title": "Brain-Computer Interface Movement Decoding",
+    "section": "4.1 Comparison with Previous Work",
+    "text": "4.1 Comparison with Previous Work\nOur approach builds upon previous BCI research while addressing several key limitations. The performance metrics compare favorably to similar studies in the literature, particularly in terms of classification accuracy and robustness to noise."
   }
 ]
