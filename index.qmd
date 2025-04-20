@@ -1,13 +1,53 @@
 ---
 title: "Brain-Computer Interface Movement Decoding"
 author: "Ray Hoggard"
-format: html
+date: today 
+format: html 
+toc: true
+toc-depth: 3 
+abstract: |  # Use '|' for multi-line abstracts
+  This paper explores methods for decoding movement intentions from brain signals using Brain-Computer Interfaces (BCIs). We investigate common signal processing techniques and machine learning models applied to electroencephalography (EEG) data. The goal is to develop a robust system capable of translating neural activity into control signals for assistive devices. Preliminary results show promising accuracy using a combination of feature extraction and support vector machines.
+keywords: 
+  - Brain-Computer Interface
+  - BCI
+  - Movement Decoding
+  - EEG
+  - Machine Learning
 ---
 
 # Introduction
 
 Welcome to my project. Here's an equation: $f(x) = w^T x + b$.
 
+## Background
+
+More details about the background...
+
+# Methods
+
+Describe the methods used...
+
+## Data Acquisition
+
+Details on how data was acquired...
+
+## Signal Processing
+
+Details on signal processing steps...
+
 ```{python}
+#| label: fig-random-data
+#| fig-cap: "Plot of five random numbers."
 import numpy as np
-np.random.rand(5)
+import matplotlib.pyplot as plt
+
+data = np.random.rand(5)
+print(data) # Output the data if needed
+
+plt.figure()
+plt.plot(data, marker='o')
+plt.title("Random Data")
+plt.xlabel("Index")
+plt.ylabel("Value")
+plt.grid(True)
+plt.show()
