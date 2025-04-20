@@ -31,29 +31,13 @@ Details on how data was acquired...
 
 Details on signal processing steps...
 
-```{python}
-#| label: fig-random-data
-#| fig-cap: "Plot of five random numbers."
-import numpy as np
-import matplotlib.pyplot as plt
-
-data = np.random.rand(5)
-print(data) # Output the data if needed
-
-plt.figure()
-plt.plot(data, marker='o')
-plt.title("Random Data")
-plt.xlabel("Index")
-plt.ylabel("Value")
-plt.grid(True)
-plt.show()
-```
+Hello, this is stuff...
 
 # Results
 
 ## Classification Performance
 
-Our movement intention decoding approach achieved promising results across multiple subjects. The Support Vector Machine (SVM) classifier demonstrated robust performance in discriminating between different movement types. Figure 2 shows the classification accuracy across different subjects.
+Our movement intention decoding approach achieved promising results across multiple subjects ([@hearst_support_1998]). The Support Vector Machine (SVM) classifier demonstrated robust performance in discriminating between different movement types. Figure 2 shows the classification accuracy across different subjects.
 
 ## Feature Importance
 
