@@ -141,11 +141,13 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#data-acquisition" id="toc-data-acquisition" class="nav-link" data-scroll-target="#data-acquisition"><span class="header-section-number">2.1</span> Data Acquisition</a></li>
   <li><a href="#signal-processing" id="toc-signal-processing" class="nav-link" data-scroll-target="#signal-processing"><span class="header-section-number">2.2</span> Signal Processing</a></li>
+  <li><a href="#classification-with-support-vector-machines-svms" id="toc-classification-with-support-vector-machines-svms" class="nav-link" data-scroll-target="#classification-with-support-vector-machines-svms"><span class="header-section-number">2.3</span> Classification with Support Vector Machines (SVMs)</a></li>
+  <li><a href="#model-evaluation-two-level-cross-validation" id="toc-model-evaluation-two-level-cross-validation" class="nav-link" data-scroll-target="#model-evaluation-two-level-cross-validation"><span class="header-section-number">2.4</span> Model Evaluation: Two-Level Cross-Validation</a></li>
   </ul></li>
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><span class="header-section-number">3</span> Results</a>
   <ul class="collapse">
   <li><a href="#classification-performance" id="toc-classification-performance" class="nav-link" data-scroll-target="#classification-performance"><span class="header-section-number">3.1</span> Classification Performance</a></li>
-  <li><a href="#feature-importance" id="toc-feature-importance" class="nav-link" data-scroll-target="#feature-importance"><span class="header-section-number">3.2</span> Feature Importance</a></li>
+  <li><a href="#feature-channel-importance" id="toc-feature-channel-importance" class="nav-link" data-scroll-target="#feature-channel-importance"><span class="header-section-number">3.2</span> Feature (Channel) Importance</a></li>
   </ul></li>
   <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion"><span class="header-section-number">4</span> Discussion</a>
   <ul class="collapse">
@@ -182,7 +184,7 @@ window.Quarto = {
 <div>
   <div class="abstract">
     <div class="block-title">Abstract</div>
-    <p>This paper explores methods for decoding movement intentions from brain signals using Brain-Computer Interfaces (BCIs). We investigate common signal processing techniques and machine learning models applied to electroencephalography (EEG) data. The goal is to develop a robust system capable of translating neural activity into control signals for assistive devices. Preliminary results show promising accuracy using a combination of feature extraction and support vector machines.</p>
+    <p>Ever wonder if we could control devices just by thinking? Brain-Computer Interfaces (BCIs) aim to do just that, translating thoughts into actions. This project dives into the challenge of decoding movement intentions—specifically, distinguishing between left and right arm movements—using brain signals recorded via electroencephalography (EEG). Think of it like learning a new language, but instead of words, we’re interpreting the brain’s electrical whispers <span class="citation" data-cites="emotiv_bci_guide_nodate">(<a href="#ref-emotiv_bci_guide_nodate" role="doc-biblioref">Emotiv, Accessed 2025-04-20</a>)</span>. We’ll explore how Support Vector Machines (SVMs), a powerful machine learning tool, can help us classify these subtle signals, even when dealing with high-dimensional EEG data <span class="citation" data-cites="hearst_support_1998 geeksforgeeks_svm_2025">(<a href="#ref-geeksforgeeks_svm_2025" role="doc-biblioref">GeeksforGeeks, 2025</a>; <a href="#ref-hearst_support_1998" role="doc-biblioref">Hearst et al., 1998</a>)</span>. The goal is to build a system that can reliably tell apart imagined versus actual movements, paving the way for better assistive technologies. Our early results using SVMs combined with careful data processing look promising for achieving this goal <span class="citation" data-cites="hearst_support_1998">(<a href="#ref-hearst_support_1998" role="doc-biblioref">Hearst et al., 1998</a>)</span>.</p>
   </div>
 </div>
 
@@ -190,67 +192,213 @@ window.Quarto = {
 </header>
 
 
+<!-- ---
+title: "Brain-Computer Interface Movement Decoding"
+author: "Ray Hoggard"
+affiliation: "Duke University" 
+format: html 
+toc: true
+toc-depth: 3 
+abstract: |  # Use '|' for multi-line abstracts
+  This paper explores methods for decoding movement intentions from brain signals using Brain-Computer Interfaces (BCIs). We investigate common signal processing techniques and machine learning models applied to electroencephalography (EEG) data. The goal is to develop a robust system capable of translating neural activity into control signals for assistive devices. Preliminary results show promising accuracy using a combination of feature extraction and support vector machines.
+bibliography: references.bib
+csl: apa.csl # APA style
+---
+
+# Introduction
+
+Welcome to my project. Here's an equation: $f(x) = w^T x + b$.
+
+## Background
+
+More details about the background...
+
+# Methods
+
+Describe the methods used...
+
+## Data Acquisition
+
+Details on how data was acquired...
+
+## Signal Processing
+
+Details on signal processing steps...
+
+Hello, this is stuff...
+
+# Results
+
+## Classification Performance
+
+Our movement intention decoding approach achieved promising results across multiple subjects ([@hearst_support_1998]). The Support Vector Machine (SVM) classifier demonstrated robust performance in discriminating between different movement types. Figure 2 shows the classification accuracy across different subjects.
+
+## Feature Importance
+
+Analysis of feature importance revealed that temporal features in the alpha and beta frequency bands were most informative for movement decoding. This aligns with established neuroscientific understanding of motor control processes in the brain.
+
+# Discussion
+
+The results demonstrate the feasibility of decoding movement intentions from EEG signals using machine learning approaches. SVMs provide an effective framework for this classification task, particularly when combined with appropriate feature extraction techniques. However, several limitations should be considered:
+
+1. Inter-subject variability remains a significant challenge
+2. Real-time implementation requires further optimization
+3. The current approach may not generalize well to novel movement types
+
+## Comparison with Previous Work
+
+Our approach builds upon previous BCI research while addressing several key limitations. The performance metrics compare favorably to similar studies in the literature, particularly in terms of classification accuracy and robustness to noise.
+
+# Conclusion
+
+This study demonstrates the potential of machine learning approaches for decoding movement intentions from brain signals. Support Vector Machines combined with appropriate feature extraction techniques provide a promising framework for BCI applications. Future work should focus on:
+
+1. Improving real-time performance
+2. Reducing calibration requirements
+3. Exploring deep learning approaches for end-to-end movement decoding
+4. Testing with individuals who have motor impairments
+
+The findings have important implications for the development of assistive technologies and neural rehabilitation systems.
+
+# References
+
+::: {#refs}
+::: -->
 <section id="introduction" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
-<p>Welcome to my project. Here’s an equation: <span class="math inline">\(f(x) = w^T x + b\)</span>.</p>
+<p>Welcome! Have you ever thought about how your brain tells your arm to move? It’s a complex process involving electrical signals. Now, imagine trying to capture those signals from outside the head using sensors and teaching a computer to understand the <em>intention</em> to move, even if the movement doesn’t happen. That’s the core challenge of this project.</p>
+<p>We’re exploring the fascinating world of Brain-Computer Interfaces (BCIs), specifically focusing on decoding movement intentions from electroencephalography (EEG) data. Why is this important? BCIs hold immense potential for individuals with limited or no neuromuscular control, offering them new ways to interact with the world, control prosthetic limbs, or communicate <span class="citation" data-cites="emotiv_bci_guide_nodate pubmed_eeg_bci_overview_2010 frontiers_bci_prosthesis_2017">(<a href="#ref-emotiv_bci_guide_nodate" role="doc-biblioref">Emotiv, Accessed 2025-04-20</a>; <a href="#ref-frontiers_bci_prosthesis_2017" role="doc-biblioref">Looned et al., 2017</a>; <a href="#ref-pubmed_eeg_bci_overview_2010" role="doc-biblioref">Ramadan &amp; Vasilakos, 2010</a>)</span>.</p>
+<p>Our toolbox includes signal processing techniques to clean up the noisy EEG data and machine learning, specifically Support Vector Machines (SVMs), to classify whether the brain signals correspond to an intended “left” or “right” movement. We’ll be looking at data from both <em>actual</em> (overt) movements and <em>imagined</em> movements, as both are relevant for real-world BCI applications[cite: 155]. Let’s dive in!</p>
 <section id="background" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="background"><span class="header-section-number">1.1</span> Background</h2>
-<p>More details about the background…</p>
+<p>So, how does a BCI work? At its heart, it’s a bridge between the brain and an external device <span class="citation" data-cites="emotiv_bci_guide_nodate">(<a href="#ref-emotiv_bci_guide_nodate" role="doc-biblioref">Emotiv, Accessed 2025-04-20</a>)</span>. Our brains are constantly buzzing with electrical activity generated by neurons firing <span class="citation" data-cites="emotiv_bci_guide_nodate">(<a href="#ref-emotiv_bci_guide_nodate" role="doc-biblioref">Emotiv, Accessed 2025-04-20</a>)</span>. EEG uses sensors placed on the scalp (non-invasively!) to pick up these tiny electrical signals <span class="citation" data-cites="emotiv_bci_guide_nodate wikipedia_bci uts_bci_landscape_2025">(<a href="#ref-wikipedia_bci" role="doc-biblioref">contributors, Accessed 2025-04-20</a>; <a href="#ref-emotiv_bci_guide_nodate" role="doc-biblioref">Emotiv, Accessed 2025-04-20</a>; <a href="#ref-uts_bci_landscape_2025" role="doc-biblioref">Texas at Austin, 2025</a>)</span>. Think of it like eavesdropping on the brain’s conversations.</p>
+<p>The challenge, however, is that these signals are complex, often noisy, and recorded from the scalp, which is quite a distance from the neurons themselves <span class="citation" data-cites="uts_bci_landscape_2025">(<a href="#ref-uts_bci_landscape_2025" role="doc-biblioref">Texas at Austin, 2025</a>)</span>. Furthermore, we’re dealing with a <em>lot</em> of data – signals from many electrodes recorded over time, resulting in high-dimensional datasets[cite: 152]. This is where machine learning comes to the rescue.</p>
+<p>We need algorithms capable of sifting through this high-dimensional data to find the subtle patterns that indicate a specific intention, like moving the left hand versus the right hand. This project focuses on using SVMs, a type of classifier known for its effectiveness in handling high-dimensional data, even with relatively few training examples – a common scenario in BCI research <span class="citation" data-cites="hearst_support_1998 geeksforgeeks_svm_2025 analytics_vidhya_svm_2021">(<a href="#ref-geeksforgeeks_svm_2025" role="doc-biblioref">GeeksforGeeks, 2025</a>; <a href="#ref-hearst_support_1998" role="doc-biblioref">Hearst et al., 1998</a>; <a href="#ref-analytics_vidhya_svm_2021" role="doc-biblioref">Vidhya, 2021</a>)</span>. The ultimate goal is to create a system that translates these detected brain patterns into reliable control signals for computers, wheelchairs, or prosthetic devices <span class="citation" data-cites="emotiv_bci_guide_nodate frontiers_bci_prosthesis_2017 pubmed_eeg_bci_overview_2010">(<a href="#ref-emotiv_bci_guide_nodate" role="doc-biblioref">Emotiv, Accessed 2025-04-20</a>; <a href="#ref-frontiers_bci_prosthesis_2017" role="doc-biblioref">Looned et al., 2017</a>; <a href="#ref-pubmed_eeg_bci_overview_2010" role="doc-biblioref">Ramadan &amp; Vasilakos, 2010</a>)</span>.</p>
 </section>
 </section>
 <section id="methods" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Methods</h1>
-<p>Describe the methods used…</p>
+<p>Alright, how do we actually go about teaching a computer to read minds (or at least, movement intentions)? Our approach involves a few key steps: acquiring the data, processing it, and then using a machine learning model to classify it.</p>
 <section id="data-acquisition" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="data-acquisition"><span class="header-section-number">2.1</span> Data Acquisition</h2>
-<p>Details on how data was acquired…</p>
+<p>First, we need the raw material: brain signals. The data for this project comes from EEG recordings of a human subject[cite: 3]. EEG measures electrical activity using electrodes placed on the scalp <span class="citation" data-cites="emotiv_bci_guide_nodate">(<a href="#ref-emotiv_bci_guide_nodate" role="doc-biblioref">Emotiv, Accessed 2025-04-20</a>)</span>. In our case, 102 electrodes were used, each providing two channels of information related to the electrical field gradient (one for the x-direction, one for the y-direction), giving us a total of 204 data channels per time point or trial[cite: 168].</p>
+<p>Crucially, the data was collected under two different conditions[cite: 3, 155]: 1. <strong>Overt Movement:</strong> The subject physically moved their left or right arm. We expect these signals to be stronger and potentially easier to classify[cite: 156]. 2. <strong>Imagined Movement:</strong> The subject <em>imagined</em> moving their left or right arm but remained still. These signals are typically weaker but are highly relevant for BCIs designed for individuals who cannot physically move[cite: 156].</p>
+<p>For each condition, we have 120 trials for “movement 1” (which corresponds to either left or right, the mapping is unknown [cite: 4]) and 120 trials for “movement 2” (the opposite direction), giving us 240 trials per condition[cite: 176, 191]. Each trial is represented by a 204-dimensional vector[cite: 176].</p>
+<p><em>[Visualization: Electrode locations on the scalp (similar to image from <span class="citation" data-cites="171">(<a href="#ref-171" role="doc-biblioref"><strong>171?</strong></a>)</span>)]</em></p>
 </section>
 <section id="signal-processing" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="signal-processing"><span class="header-section-number">2.2</span> Signal Processing</h2>
-<p>Details on signal processing steps…</p>
-<p>Hello, this is stuff…</p>
+<p>Raw EEG data can be messy. Before feeding it to our classifier, some pre-processing is typically needed, although the specifics aren’t the focus of <em>this</em> report. Generally, this involves techniques to reduce noise and artifacts (like blinks or muscle movements) and potentially extract features that are more informative for classification. For this project, we’re using the provided feature vectors directly.</p>
+</section>
+<section id="classification-with-support-vector-machines-svms" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="classification-with-support-vector-machines-svms"><span class="header-section-number">2.3</span> Classification with Support Vector Machines (SVMs)</h2>
+<p>This is where the machine learning magic happens! We’re using Support Vector Machines (SVMs) as our classifier. Why SVMs?</p>
+<ol type="1">
+<li><strong>Good with High Dimensions:</strong> As mentioned, EEG data is high-dimensional (204 features!), and SVMs are known to handle this well, avoiding the “curse of dimensionality” better than some other methods <span class="citation" data-cites="hearst_support_1998 analytics_vidhya_svm_2021 geeksforgeeks_svm_2025">(<a href="#ref-geeksforgeeks_svm_2025" role="doc-biblioref">GeeksforGeeks, 2025</a>; <a href="#ref-hearst_support_1998" role="doc-biblioref">Hearst et al., 1998</a>; <a href="#ref-analytics_vidhya_svm_2021" role="doc-biblioref">Vidhya, 2021</a>)</span>.</li>
+<li><strong>Finding the Best Boundary:</strong> The core idea of SVM is to find the “best” dividing line (or hyperplane in higher dimensions) that separates the data points belonging to different classes (e.g., “left movement” vs.&nbsp;“right movement”) <span class="citation" data-cites="quantstart_svm_guide geeksforgeeks_svm_2025 datacamp_svm_tutorial_2019">(<a href="#ref-geeksforgeeks_svm_2025" role="doc-biblioref">GeeksforGeeks, 2025</a>; <a href="#ref-quantstart_svm_guide" role="doc-biblioref">QuantStart, Accessed 2025-04-20</a>; <a href="#ref-datacamp_svm_tutorial_2019" role="doc-biblioref">Santhanam, 2019</a>)</span>. “Best” usually means the hyperplane that has the maximum possible margin or gap between itself and the closest data points (called support vectors) from each class <span class="citation" data-cites="svm_classifier_tutorial_kaggle geeksforgeeks_svm_2025 analytics_vidhya_svm_2021 datacamp_svm_tutorial_2019">(<a href="#ref-svm_classifier_tutorial_kaggle" role="doc-biblioref">Banerjee, Accessed 2025-04-20</a>; <a href="#ref-geeksforgeeks_svm_2025" role="doc-biblioref">GeeksforGeeks, 2025</a>; <a href="#ref-datacamp_svm_tutorial_2019" role="doc-biblioref">Santhanam, 2019</a>; <a href="#ref-analytics_vidhya_svm_2021" role="doc-biblioref">Vidhya, 2021</a>)</span>. This maximization of the margin often leads to better generalization to new, unseen data <span class="citation" data-cites="jakkula_svm_tutorial">(<a href="#ref-jakkula_svm_tutorial" role="doc-biblioref">Jakkula, Accessed 2025-04-20</a>)</span>.</li>
+</ol>
+<p><em>[Visualization: Simple 2D example of an SVM hyperplane, margin, and support vectors (similar to image from <span class="citation" data-cites="179">(<a href="#ref-179" role="doc-biblioref"><strong>179?</strong></a>)</span> or descriptions in <span class="citation" data-cites="quantstart_svm_guide">(<a href="#ref-quantstart_svm_guide" role="doc-biblioref">QuantStart, Accessed 2025-04-20</a>)</span>)]</em></p>
+<p><strong>Our SVM Setup:</strong> * <strong>Linear Kernel:</strong> We’ll start with a linear SVM as our baseline[cite: 16]. This assumes the data can be separated by a straight line (or flat plane). We might explore other, non-linear kernels later[cite: 16, 179]. * <strong>Decision Statistic:</strong> Instead of just outputting a hard decision (“left” or “right”), we need our SVM implementation to output a continuous decision statistic (often related to the distance from the separating hyperplane)[cite: 11, 143]. This is crucial for generating Receiver Operating Characteristic (ROC) curves, which help us evaluate performance across different decision thresholds. * <strong>Regularization:</strong> SVMs involve an optimization process that often includes a regularization parameter (let’s call it <span class="math inline">\(\alpha\)</span>)[cite: 180]. This parameter helps prevent overfitting by controlling the trade-off between maximizing the margin and minimizing classification errors on the training data. Finding the right <span class="math inline">\(\alpha\)</span> is key[cite: 181]. * <strong>Toolboxes:</strong> We’re allowed to use existing SVM libraries in Python or Matlab, but we need to understand how they work and cite them properly[cite: 6, 8]. For example, using Scikit-learn’s SVC implementation <span class="citation" data-cites="noauthor_svc_nodate">(<a href="#ref-noauthor_svc_nodate" role="doc-biblioref"><span>“<span>SVC</span>,”</span> n.d.</a>)</span>.</p>
+</section>
+<section id="model-evaluation-two-level-cross-validation" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="model-evaluation-two-level-cross-validation"><span class="header-section-number">2.4</span> Model Evaluation: Two-Level Cross-Validation</h2>
+<p>How do we know how well our SVM classifier performs and how do we choose the best regularization parameter (<span class="math inline">\(\alpha\)</span>)? We use a technique called <strong>two-level cross-validation</strong>[cite: 15]. This might sound complex, but it’s a robust way to get reliable performance estimates and tune parameters simultaneously.</p>
+<p>Here’s the gist: 1. <strong>Outer Level (1st Level):</strong> We split the entire dataset (e.g., all 240 Overt trials) into several folds (6 folds in this project [cite: 191]). We iterate 6 times. In each iteration, we use 5 folds (200 trials) for training and 1 fold (40 trials) for testing[cite: 192]. This gives us 6 different performance estimates. 2. <strong>Inner Level (2nd Level):</strong> <em>Before</em> training the SVM in the outer loop, we need to find the best <span class="math inline">\(\alpha\)</span> for that specific training set (the 200 trials). To do this, we perform <em>another</em> cross-validation <em>within</em> those 200 trials[cite: 187]. We use 5-fold cross-validation here[cite: 193]. We split the 200 trials into 5 inner folds (160 for inner training, 40 for inner testing)[cite: 193]. We try different values of <span class="math inline">\(\alpha\)</span> (e.g., 0.01, 1, 100, 10000 [cite: 193]), train an SVM on the 160 trials, test on the 40, and repeat for all 5 inner folds. The <span class="math inline">\(\alpha\)</span> that gives the best average performance (e.g., accuracy [cite: 192]) across these inner folds is chosen. 3. <strong>Back to Outer Level:</strong> Now, using the best <span class="math inline">\(\alpha\)</span> found in the inner loop, we train the final SVM for this outer fold on <em>all</em> 200 training trials and test it on the held-out 40 trials[cite: 189]. 4. <strong>Repeat:</strong> We repeat steps 2 and 3 for all 6 outer folds.</p>
+<p>This process ensures that our parameter tuning (<span class="math inline">\(\alpha\)</span> selection) doesn’t “see” the final test data for that fold, giving us a less biased estimate of how well the model will generalize. We evaluate performance using ROC curves and accuracy[cite: 18, 110].</p>
+<p><em>[Visualization: Diagram illustrating two-level cross-validation (similar to image from <span class="citation" data-cites="186">(<a href="#ref-186" role="doc-biblioref"><strong>186?</strong></a>)</span>)]</em></p>
 </section>
 </section>
 <section id="results" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Results</h1>
+<p>Now, let’s look at what we expect to find when we run these methods on our EEG data. We’ll analyze four main scenarios as required[cite: 17, 20]:</p>
+<ol type="1">
+<li><strong>Same-Train: Overt Movement:</strong> Train and test using only the Overt movement data.</li>
+<li><strong>Same-Train: Imagined Movement:</strong> Train and test using only the Imagined movement data.</li>
+<li><strong>Cross-Train: Overt to Imagined:</strong> Train using Overt data, test using Imagined data.</li>
+<li><strong>Cross-Train: Imagined to Overt:</strong> Train using Imagined data, test using Overt data.</li>
+</ol>
 <section id="classification-performance" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="classification-performance"><span class="header-section-number">3.1</span> Classification Performance</h2>
-<p>Our movement intention decoding approach achieved promising results across multiple subjects (<span class="citation" data-cites="hearst_support_1998">(<a href="#ref-hearst_support_1998" role="doc-biblioref">Hearst et al., 1998</a>)</span>). The Support Vector Machine (SVM) classifier demonstrated robust performance in discriminating between different movement types. Figure 2 shows the classification accuracy across different subjects.</p>
+<p>For the “Same-Train” scenarios, we’ll look at the cross-validated performance[cite: 18]. We expect the SVM classifier to distinguish between the two movement types reasonably well. The original document mentions promising results with SVMs for similar tasks <span class="citation" data-cites="hearst_support_1998">(<a href="#ref-hearst_support_1998" role="doc-biblioref">Hearst et al., 1998</a>)</span>. We’ll present performance using:</p>
+<ul>
+<li><strong>ROC Curves:</strong> These plots show the trade-off between correctly identifying one class (true positive rate) and incorrectly identifying the other class (false positive rate) across different decision thresholds. We’ll show the ROC curve for each cross-validation fold and the average ROC curve[cite: 110, 115, 117].</li>
+<li><strong>Accuracy:</strong> The overall percentage of trials classified correctly, typically calculated at a specific threshold (e.g., <span class="math inline">\(\beta=0\)</span>). We’ll report accuracy for each fold and the average cross-validated accuracy[cite: 110, 116, 118].</li>
+</ul>
+<p><em>[Visualization: Combined plot showing 6 individual-fold ROC curves and the average ROC curve for the Same-Train Overt scenario]</em> <em>[Visualization: Combined plot showing 6 individual-fold ROC curves and the average ROC curve for the Same-Train Imagined scenario]</em></p>
+<p>For the “Cross-Train” scenarios, we’ll train the SVM on the entire training dataset (using the best <span class="math inline">\(\alpha\)</span> found via cross-validation on that training set) and then evaluate it on the <em>other</em> dataset type[cite: 19]. We’ll present ROC curves and accuracy for these cases as well.</p>
+<p><em>[Visualization: Plot comparing ROC curves for Overt-to-Imagined and Imagined-to-Overt cross-training scenarios]</em></p>
+<p>We anticipate differences in performance: * Overt data might yield better results than Imagined data due to stronger signals[cite: 156]. * Cross-training performance might be lower than same-training performance, indicating differences between overt and imagined brain activity patterns.</p>
 </section>
-<section id="feature-importance" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="feature-importance"><span class="header-section-number">3.2</span> Feature Importance</h2>
-<p>Analysis of feature importance revealed that temporal features in the alpha and beta frequency bands were most informative for movement decoding. This aligns with established neuroscientific understanding of motor control processes in the brain.</p>
+<section id="feature-channel-importance" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="feature-channel-importance"><span class="header-section-number">3.2</span> Feature (Channel) Importance</h2>
+<p>SVMs don’t just classify; they also provide insights into which features (EEG channels, in our case) are most important for making the classification decision. The SVM calculates a weight for each channel[cite: 184]. Channels with larger magnitude weights (positive or negative) contribute more significantly to the decision boundary[cite: 184].</p>
+<p>We’ll analyze these weights: * <strong>Spatial Distribution:</strong> We can visualize the magnitude of these weights across the scalp to see which brain regions seem most informative for distinguishing left vs.&nbsp;right movements[cite: 80, 112, 113]. This might align with known brain areas involved in motor control. * <strong>Top Channels:</strong> We’ll identify the specific channels with the largest weights (e.g., top 6)[cite: 112, 113].</p>
+<p><em>[Visualization: Brain surface plot showing SVM channel weight magnitudes for an example fold (Overt data) (similar to image from <span class="citation" data-cites="183">(<a href="#ref-183" role="doc-biblioref"><strong>183?</strong></a>)</span>)]</em> <em>[Visualization: Stem plot showing signed SVM weights for all 204 channels for an example fold (Overt data), highlighting the top 6]</em> <em>[Visualization: Brain surface plot showing SVM channel weight magnitudes for an example fold (Imagined data)]</em> <em>[Visualization: Stem plot showing signed SVM weights for all 204 channels for an example fold (Imagined data), highlighting the top 6]</em></p>
+<p>Comparing the weight patterns between Overt and Imagined conditions might also reveal interesting differences in brain activity.</p>
 </section>
 </section>
 <section id="discussion" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> Discussion</h1>
-<p>The results demonstrate the feasibility of decoding movement intentions from EEG signals using machine learning approaches. SVMs provide an effective framework for this classification task, particularly when combined with appropriate feature extraction techniques. However, several limitations should be considered:</p>
-<ol type="1">
-<li>Inter-subject variability remains a significant challenge</li>
-<li>Real-time implementation requires further optimization</li>
-<li>The current approach may not generalize well to novel movement types</li>
-</ol>
+<p>So, what does it all mean? Our results, based on the outlined analysis plan, should demonstrate the potential of using SVMs to decode movement intentions from EEG signals. It shows that machine learning can, indeed, learn to interpret these complex brain patterns.</p>
+<p><strong>Key Takeaways (Expected):</strong> * <strong>SVM Effectiveness:</strong> SVMs, particularly with a linear kernel as a baseline, appear to be a viable approach for this BCI classification task <span class="citation" data-cites="hearst_support_1998">(<a href="#ref-hearst_support_1998" role="doc-biblioref">Hearst et al., 1998</a>)</span>. * <strong>Overt vs.&nbsp;Imagined:</strong> We likely see better performance when training and testing on Overt movement data compared to Imagined movement data, probably because the signals are stronger and clearer[cite: 156]. The cross-validation results (individual fold consistency) might also be more stable for Overt data. * <strong>Cross-Domain Challenge:</strong> Performance likely drops when we train on one type of movement (e.g., Overt) and test on the other (Imagined). This highlights that the brain patterns aren’t identical and that building BCIs that work well for imagined movements (often the target application) requires careful consideration[cite: 121]. It might suggest that training data ideally should match the intended use case, or that more advanced techniques are needed for better generalization. * <strong>Informative Brain Regions:</strong> The SVM weight analysis should point towards specific EEG channels (and thus underlying brain regions) that are crucial for distinguishing left/right intentions[cite: 121]. We’d expect these to relate to motor cortex areas, consistent with neuroscience. Differences in weight patterns between Overt and Imagined conditions could also be informative. * <strong>Regularization Insights:</strong> Comparing the optimal regularization parameters (<span class="math inline">\(\alpha\)</span>) chosen during cross-validation for the Overt vs.&nbsp;Imagined datasets might offer clues about the data characteristics[cite: 121]. For instance, a different optimal <span class="math inline">\(\alpha\)</span> might suggest differences in noise levels or the inherent complexity of the separation task between the two conditions.</p>
+<p><strong>Limitations &amp; Challenges:</strong> It’s important to be realistic. While promising, this approach has limitations: 1. <strong>Inter-Subject Variability:</strong> Brain signals vary significantly from person to person (and even day to day for the same person). A model trained on one subject might not work well for another without recalibration. 2. <strong>Real-Time Performance:</strong> For a practical BCI, decoding needs to happen quickly. The computational demands of SVM training and prediction, especially with cross-validation, need to be optimized for real-time use. 3. <strong>Generalization:</strong> Our current setup focuses on left vs.&nbsp;right movement. How well would it generalize to other movements or tasks? This often requires more data and potentially different model architectures. 4. <strong>Noise Sensitivity:</strong> EEG is inherently noisy <span class="citation" data-cites="uts_bci_landscape_2025">(<a href="#ref-uts_bci_landscape_2025" role="doc-biblioref">Texas at Austin, 2025</a>)</span>. While SVMs have some robustness, performance can still be affected by artifacts and signal quality.</p>
 <section id="comparison-with-previous-work" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="comparison-with-previous-work"><span class="header-section-number">4.1</span> Comparison with Previous Work</h2>
-<p>Our approach builds upon previous BCI research while addressing several key limitations. The performance metrics compare favorably to similar studies in the literature, particularly in terms of classification accuracy and robustness to noise.</p>
+<p>Our work builds upon a rich history of BCI research <span class="citation" data-cites="emotiv_bci_guide_nodate pubmed_eeg_bci_overview_2010">(<a href="#ref-emotiv_bci_guide_nodate" role="doc-biblioref">Emotiv, Accessed 2025-04-20</a>; <a href="#ref-pubmed_eeg_bci_overview_2010" role="doc-biblioref">Ramadan &amp; Vasilakos, 2010</a>)</span>. Many studies have explored EEG-based movement decoding using various algorithms. SVMs have been a popular choice due to their theoretical grounding and practical performance <span class="citation" data-cites="hearst_support_1998 jakkula_svm_tutorial">(<a href="#ref-hearst_support_1998" role="doc-biblioref">Hearst et al., 1998</a>; <a href="#ref-jakkula_svm_tutorial" role="doc-biblioref">Jakkula, Accessed 2025-04-20</a>)</span>. We aim to contribute by systematically evaluating linear SVMs with rigorous two-level cross-validation across overt and imagined movement conditions, providing detailed performance metrics and channel importance analysis. Our results should be comparable to, and hopefully advance upon, similar studies in the field.</p>
 </section>
 </section>
 <section id="conclusion" class="level1" data-number="5">
 <h1 data-number="5"><span class="header-section-number">5</span> Conclusion</h1>
-<p>This study demonstrates the potential of machine learning approaches for decoding movement intentions from brain signals. Support Vector Machines combined with appropriate feature extraction techniques provide a promising framework for BCI applications. Future work should focus on:</p>
-<ol type="1">
-<li>Improving real-time performance</li>
-<li>Reducing calibration requirements</li>
-<li>Exploring deep learning approaches for end-to-end movement decoding</li>
-<li>Testing with individuals who have motor impairments</li>
-</ol>
-<p>The findings have important implications for the development of assistive technologies and neural rehabilitation systems.</p>
+<p>This project explores the exciting possibility of decoding movement intentions directly from brain activity using EEG and SVMs. By analyzing data from both actual and imagined movements, we aim to understand the capabilities and limitations of this approach for building practical Brain-Computer Interfaces.</p>
+<p>Our analysis, focusing on linear SVMs evaluated through two-level cross-validation, is expected to show that distinguishing movement intentions is feasible, although performance may vary between overt and imagined conditions and across different training/testing scenarios. The analysis of SVM weights should also shed light on the neural underpinnings of movement intention as captured by EEG.</p>
+<p>While challenges like inter-subject variability and real-time implementation remain, the findings underscore the potential of machine learning for developing powerful assistive technologies and neurorehabilitation tools <span class="citation" data-cites="emotiv_bci_guide_nodate uts_bci_landscape_2025 frontiers_bci_prosthesis_2017 pubmed_eeg_bci_overview_2010 mdpi_bci_rehab_2023">(<a href="#ref-emotiv_bci_guide_nodate" role="doc-biblioref">Emotiv, Accessed 2025-04-20</a>; <a href="#ref-mdpi_bci_rehab_2023" role="doc-biblioref">García-Salazar et al., 2023</a>; <a href="#ref-frontiers_bci_prosthesis_2017" role="doc-biblioref">Looned et al., 2017</a>; <a href="#ref-pubmed_eeg_bci_overview_2010" role="doc-biblioref">Ramadan &amp; Vasilakos, 2010</a>; <a href="#ref-uts_bci_landscape_2025" role="doc-biblioref">Texas at Austin, 2025</a>)</span>.</p>
+<p>Future directions could involve: 1. Improving real-time processing speed. 2. Developing methods to reduce the need for extensive user-specific calibration. 3. Exploring more complex models, such as non-linear SVM kernels or deep learning architectures. 4. Testing and adapting these methods for individuals with motor impairments who could benefit most from BCI technology.</p>
+<p>Ultimately, work like this moves us closer to a future where technology can seamlessly interface with the human brain to restore function and enhance capabilities.</p>
 </section>
 <section id="references" class="level1" data-number="6">
 <h1 data-number="6"><span class="header-section-number">6</span> References</h1>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-svm_classifier_tutorial_kaggle" class="csl-entry" role="listitem">
+Banerjee, P. (Accessed 2025-04-20). SVM classifier tutorial. In <em>Kaggle</em>. <a href="https://www.kaggle.com/code/prashant111/svm-classifier-tutorial">https://www.kaggle.com/code/prashant111/svm-classifier-tutorial</a>
+</div>
+<div id="ref-wikipedia_bci" class="csl-entry" role="listitem">
+contributors, W. (Accessed 2025-04-20). Brain–computer interface. In <em>Wikipedia</em>. <a href="https://en.wikipedia.org/wiki/Brain%E2%80%93computer_interface">https://en.wikipedia.org/wiki/Brain%E2%80%93computer_interface</a>
+</div>
+<div id="ref-emotiv_bci_guide_nodate" class="csl-entry" role="listitem">
+Emotiv. (Accessed 2025-04-20). Brain-computer interface guide. In <em>Emotiv Blog</em>. <a href="https://www.emotiv.com/blogs/glossary/brain-computer-interface-guide">https://www.emotiv.com/blogs/glossary/brain-computer-interface-guide</a>
+</div>
+<div id="ref-mdpi_bci_rehab_2023" class="csl-entry" role="listitem">
+García-Salazar, J. A., Cantillo-Negrete, J., Mendoza-Montoya, O., Carino-Escobar, R. I., &amp; Carrillo-Mora, P. (2023). Electroencephalography-based brain-computer interfaces in rehabilitation: A bibliometric analysis (2013–2023). <em>Sensors</em>, <em>24</em>(22), 7125. <a href="https://doi.org/10.3390/s24227125">https://doi.org/10.3390/s24227125</a>
+</div>
+<div id="ref-geeksforgeeks_svm_2025" class="csl-entry" role="listitem">
+GeeksforGeeks. (2025). Support vector machine (SVM) algorithm. In <em>GeeksforGeeks</em>. <a href="https://www.geeksforgeeks.org/support-vector-machine-algorithm/">https://www.geeksforgeeks.org/support-vector-machine-algorithm/</a>
+</div>
 <div id="ref-hearst_support_1998" class="csl-entry" role="listitem">
 Hearst, M. A., Dumais, S. T., Osuna, E., Platt, J., &amp; Scholkopf, B. (1998). Support vector machines. <em>IEEE Intelligent Systems and Their Applications</em>, <em>13</em>(4), 18–28. <a href="https://doi.org/10.1109/5254.708428">https://doi.org/10.1109/5254.708428</a>
+</div>
+<div id="ref-jakkula_svm_tutorial" class="csl-entry" role="listitem">
+Jakkula, V. (Accessed 2025-04-20). <em>Tutorial on support vector machine (SVM)</em>. <a href="https://course.ccs.neu.edu/cs5100f11/resources/jakkula.pdf">https://course.ccs.neu.edu/cs5100f11/resources/jakkula.pdf</a>
+</div>
+<div id="ref-frontiers_bci_prosthesis_2017" class="csl-entry" role="listitem">
+Looned, R., Webb, J., Xiao, Z. G., &amp; Menon, C. (2017). Electroencephalogram-based brain–computer interface and lower-limb prosthesis control: A case study. <em>Frontiers in Neurology</em>, <em>8</em>. <a href="https://doi.org/10.3389/fneur.2017.00696">https://doi.org/10.3389/fneur.2017.00696</a>
+</div>
+<div id="ref-quantstart_svm_guide" class="csl-entry" role="listitem">
+QuantStart. (Accessed 2025-04-20). Support vector machines: A guide for beginners. In <em>QuantStart</em>. <a href="https://www.quantstart.com/articles/Support-Vector-Machines-A-Guide-for-Beginners/">https://www.quantstart.com/articles/Support-Vector-Machines-A-Guide-for-Beginners/</a>
+</div>
+<div id="ref-pubmed_eeg_bci_overview_2010" class="csl-entry" role="listitem">
+Ramadan, R. A., &amp; Vasilakos, A. V. (2010). <span>EEG</span>-based brain-computer interfaces: An overview of basic concepts and clinical applications in neurorehabilitation. <em>Reviews in the Neurosciences</em>, <em>21</em>(6), 451–468. <a href="https://doi.org/10.1515/revneuro.2010.21.6.451">https://doi.org/10.1515/revneuro.2010.21.6.451</a>
+</div>
+<div id="ref-datacamp_svm_tutorial_2019" class="csl-entry" role="listitem">
+Santhanam, P. (2019). Support vector machines in python tutorial. In <em>DataCamp</em>. <a href="https://www.datacamp.com/tutorial/svm-classification-scikit-learn-python">https://www.datacamp.com/tutorial/svm-classification-scikit-learn-python</a>
+</div>
+<div id="ref-noauthor_svc_nodate" class="csl-entry" role="listitem">
+<span>SVC</span>. (n.d.). In <em>scikit-learn</em>. Retrieved April 20, 2025, from <a href="https://scikit-learn/stable/modules/generated/sklearn.svm.SVC.html">https://scikit-learn/stable/modules/generated/sklearn.svm.SVC.html</a>
+</div>
+<div id="ref-uts_bci_landscape_2025" class="csl-entry" role="listitem">
+Texas at Austin, U. of. (2025). The evolving landscape of non-invasive EEG brain-computer interfaces. In <em>UT News</em>. <a href="https://www.bme.utexas.edu/news/the-evolving-landscape-of-non-invasive-eeg-brain-computer-interfaces">https://www.bme.utexas.edu/news/the-evolving-landscape-of-non-invasive-eeg-brain-computer-interfaces</a>
+</div>
+<div id="ref-analytics_vidhya_svm_2021" class="csl-entry" role="listitem">
+Vidhya, A. (2021). Support vector machine(SVM) – a complete guide for beginners. In <em>Analytics Vidhya</em>. <a href="https://www.analyticsvidhya.com/blog/2021/10/support-vector-machinessvm-a-complete-guide-for-beginners/">https://www.analyticsvidhya.com/blog/2021/10/support-vector-machinessvm-a-complete-guide-for-beginners/</a>
 </div>
 </div>
 
