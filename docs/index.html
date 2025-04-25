@@ -155,20 +155,15 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#what-is-a-bci" id="toc-what-is-a-bci" class="nav-link" data-scroll-target="#what-is-a-bci"><span class="header-section-number">1.2.1</span> What is a BCI?</a></li>
   <li><a href="#what-is-a-support-vector-machine-svm" id="toc-what-is-a-support-vector-machine-svm" class="nav-link" data-scroll-target="#what-is-a-support-vector-machine-svm"><span class="header-section-number">1.2.2</span> What is a Support Vector Machine (SVM)?</a></li>
-  <li><a href="#what-is-a-support-vector-machine-svm-1" id="toc-what-is-a-support-vector-machine-svm-1" class="nav-link" data-scroll-target="#what-is-a-support-vector-machine-svm-1"><span class="header-section-number">1.2.3</span> What is a Support Vector Machine (SVM)?</a></li>
   </ul></li>
   </ul></li>
   <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods"><span class="header-section-number">2</span> Methods</a>
   <ul class="collapse">
   <li><a href="#data-acquisition" id="toc-data-acquisition" class="nav-link" data-scroll-target="#data-acquisition"><span class="header-section-number">2.1</span> Data Acquisition</a></li>
-  </ul></li>
-  <li><a href="#methods-1" id="toc-methods-1" class="nav-link" data-scroll-target="#methods-1"><span class="header-section-number">3</span> Methods</a>
+  <li><a href="#classification-with-support-vector-machines-svms" id="toc-classification-with-support-vector-machines-svms" class="nav-link" data-scroll-target="#classification-with-support-vector-machines-svms"><span class="header-section-number">2.2</span> Classification with Support Vector Machines (SVMs)</a>
   <ul class="collapse">
-  <li><a href="#data-acquisition-1" id="toc-data-acquisition-1" class="nav-link" data-scroll-target="#data-acquisition-1"><span class="header-section-number">3.1</span> Data Acquisition</a></li>
-  <li><a href="#classification-with-support-vector-machines-svms" id="toc-classification-with-support-vector-machines-svms" class="nav-link" data-scroll-target="#classification-with-support-vector-machines-svms"><span class="header-section-number">3.2</span> Classification with Support Vector Machines (SVMs)</a>
-  <ul class="collapse">
-  <li><a href="#mathematical-formulation" id="toc-mathematical-formulation" class="nav-link" data-scroll-target="#mathematical-formulation"><span class="header-section-number">3.2.1</span> Mathematical Formulation</a></li>
-  <li><a href="#handling-non-linearity-the-kernel-trick" id="toc-handling-non-linearity-the-kernel-trick" class="nav-link" data-scroll-target="#handling-non-linearity-the-kernel-trick"><span class="header-section-number">3.2.2</span> Handling Non-Linearity: The Kernel Trick</a></li>
+  <li><a href="#mathematical-formulation" id="toc-mathematical-formulation" class="nav-link" data-scroll-target="#mathematical-formulation"><span class="header-section-number">2.2.1</span> Mathematical Formulation</a></li>
+  <li><a href="#handling-non-linearity-the-kernel-trick" id="toc-handling-non-linearity-the-kernel-trick" class="nav-link" data-scroll-target="#handling-non-linearity-the-kernel-trick"><span class="header-section-number">2.2.2</span> Handling Non-Linearity: The Kernel Trick</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -229,19 +224,9 @@ window.Quarto = {
 </section>
 <section id="what-is-a-support-vector-machine-svm" class="level3" data-number="1.2.2">
 <h3 data-number="1.2.2" class="anchored" data-anchor-id="what-is-a-support-vector-machine-svm"><span class="header-section-number">1.2.2</span> What is a Support Vector Machine (SVM)?</h3>
-<ul>
-<li>Provide a conceptual explanation of SVMs.</li>
-<li>Explain the core idea: finding an optimal separating hyperplane, maximizing the margin, and the role of support vectors.</li>
-<li><strong>SVM Suitability:</strong> Explain, in your own words, <em>why</em> an SVM classifier is well-suited for this specific binary classification problem[cite: 140]. Include an explanation, in your own words, of <em>why</em> SVMs can be effective with high-dimensional data even when the number of training observations is relatively small (N &lt; D scenario)[cite: 141].</li>
-<li><strong>Other Applications:</strong> Briefly describe, in your own words, other potential application areas where this SVM approach might be useful beyond BCI[cite: 141].</li>
-</ul>
-</section>
-<section id="what-is-a-support-vector-machine-svm-1" class="level3" data-number="1.2.3">
-<h3 data-number="1.2.3" class="anchored" data-anchor-id="what-is-a-support-vector-machine-svm-1"><span class="header-section-number">1.2.3</span> What is a Support Vector Machine (SVM)?</h3>
 <p>Support Vector Machines (SVMs) are supervised machine learning models designed primarily for classification tasks, meaning they learn to assign data points to predefined categories. Given a new data point, an SVM determines which category it most likely belongs to based on patterns learned from labeled training data - meaning we feed it some starting data that’s already assigned to categories, and it learns from that. In the context of this project, our categories are simply “intended left movement” and “intended right movement.” The SVM’s job is to analyze the features extracted from an EEG signal segment and classify it as belonging to either the “left” or “right” intention category.</p>
-<p>At a high level,</p>
 <p>Conceptually, an SVM works by trying to find the “best” boundary that separates the data points of different classes in the feature space. Imagine it like this: you’ve got a few 2-D data points, and you plot them along the xy plane. Each data point is either red or green. Assume for now that all the red points are clustered in the top right, and all the green points in bottom left. An SVM would draw a boundary separating these data points.</p>
-<div id="a27977e9" class="cell" data-execution_count="1">
+<div id="82e8cdb0" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn <span class="im">import</span> svm</span>
@@ -304,29 +289,14 @@ window.Quarto = {
 </section>
 <section id="methods" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Methods</h1>
-<ul>
-<li>Provide an overview of the methodology: data acquisition, signal processing overview, SVM classification details, and the two-level cross-validation evaluation strategy.</li>
-</ul>
+<p>Our approach involves several key steps: first, getting the specific EEG datasets for overt and imagined movements; second, using the provided feature vectors with minimal extra signal processing; third, applying SVM classifiers to distinguish between movement intention classes; and finally, evaluating the classifier performance and tuning hyperparameters using a two-level cross-validation strategy.</p>
 <section id="data-acquisition" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="data-acquisition"><span class="header-section-number">2.1</span> Data Acquisition</h2>
-<ul>
-<li><strong>Data Source:</strong> Describe the source and nature of the EEG data used.</li>
-<li><strong>EEG Setup:</strong> Detail the specifics: number of electrodes, data channels per electrode, total feature dimensionality (e.g., 204 features)[cite: 31].</li>
-<li><strong>Experimental Conditions:</strong> Explain, in your own words, the two conditions under which data was collected (Overt vs.&nbsp;Imagined movement) and <em>why both</em> are relevant to BCI research[cite: 142]. Mention expected signal differences (e.g., weaker signals in Imagined)[cite: 10].</li>
-<li><strong>Data Structure:</strong> State the number of trials per class per condition (e.g., 120 trials for movement 1, 120 for movement 2, total 240 per condition)[cite: 31]. Explicitly state how you are formulating the classification problem (e.g., defining Class 1 vs.&nbsp;Class 2, acknowledging the unknown left/right mapping)[cite: 52, 154].</li>
-</ul>
-</section>
-</section>
-<section id="methods-1" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Methods</h1>
-<p>Our approach involves several key steps: first, getting the specific EEG datasets for overt and imagined movements; second, using the provided feature vectors with minimal extra signal processing; third, applying SVM classifiers to distinguish between movement intention classes; and finally, evaluating the classifier performance and tuning hyperparameters using a two-level cross-validation strategy.</p>
-<section id="data-acquisition-1" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="data-acquisition-1"><span class="header-section-number">3.1</span> Data Acquisition</h2>
 <p>The foundation of this project is the electroencephalography (EEG) data collected from a human subject.</p>
 <ul>
 <li><strong>EEG Setup:</strong> The specific setup used for this data involved 102 electrodes distributed across the scalp, as seen below (with each blue point being a single electrode). Each electrode measured information related to the local electrical field gradient, providing two distinct data components (one for the x-direction gradient, one for the y-direction gradient). This resulted in a total of 204 data channels or features for each recorded time point or trial.</li>
 </ul>
-<div id="a135f2e9" class="cell" data-execution_count="2">
+<div id="dd9306f7" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -357,11 +327,11 @@ window.Quarto = {
 <li><strong>Data Structure:</strong> For each condition (Overt and Imagined), the dataset contains 120 trials corresponding to “movement 1” and 120 trials corresponding to “movement 2”. The specific mapping of “movement 1” and “movement 2” to the actual left or right hand movement is unknown for this dataset. This gives a total of 240 trials per condition, with each individual trial represented as a 204-dimensional feature vector, corresponding to the measurements from the 204 data channels. For classification, we treat this as a binary problem distinguishing between the two movement types.</li>
 </ul>
 </section>
-<section id="classification-with-support-vector-machines-svms" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="classification-with-support-vector-machines-svms"><span class="header-section-number">3.2</span> Classification with Support Vector Machines (SVMs)</h2>
+<section id="classification-with-support-vector-machines-svms" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="classification-with-support-vector-machines-svms"><span class="header-section-number">2.2</span> Classification with Support Vector Machines (SVMs)</h2>
 <p>Before we look at the results of our classifier, let’s understand what’s happening under the hood. Remember that the core task of the SVM classifier in this project is to learn a decision boundary that separates the two classes of movement intention (Movement 1 vs.&nbsp;Movement 2) based on the 204-dimensional EEG feature vectors.</p>
-<section id="mathematical-formulation" class="level3" data-number="3.2.1">
-<h3 data-number="3.2.1" class="anchored" data-anchor-id="mathematical-formulation"><span class="header-section-number">3.2.1</span> Mathematical Formulation</h3>
+<section id="mathematical-formulation" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="mathematical-formulation"><span class="header-section-number">2.2.1</span> Mathematical Formulation</h3>
 <p>Let our training dataset consist of <span class="math inline">\(N\)</span> trials, where each trial <span class="math inline">\(i\)</span> has a feature vector <span class="math inline">\(x_i \in \mathbb{R}^{204}\)</span> and a corresponding class label <span class="math inline">\(y_i \in \{-1, +1\}\)</span> (representing, for example, Movement 1 and Movement 2). The goal of the linear SVM is to find the optimal separating hyperplane defined by a weight vector <span class="math inline">\(w\)</span> and a bias term <span class="math inline">\(b\)</span>. The hyperplane equation is <span class="math inline">\(w^T x + b = 0\)</span>.</p>
 <p>But what happens if the data overlaps, or if the true boundary between classes isn’t a straight line? In such cases, no single linear hyperplane can perfectly separate all the data points. To handle potential overlap and non-separability even in the linear case, we use the <strong>soft-margin SVM formulation</strong>. This approach seeks a hyperplane that balances maximizing the margin between the classes and minimizing the number of classification errors, allowing some data points to be misclassified or fall within the margin boundary. This is achieved by solving the following optimization problem (cite: support vector machines, author is mammon):</p>
 <p><span class="math display">\[
@@ -390,8 +360,8 @@ y_i (w^T x_i + b) \ge 1 - \xi_i, \quad \text{for } i = 1, \dots, N
 <p>This mathematical formulation constitutes what we call a <strong>convex optimization problem</strong>. A convex optimization problem is a problem in which every local minimum is also a global minimum. Generally, a function is convex if it satisfies the following: <span class="math inline">\(f(\lambda x_1 + (1 - \lambda)x_2) \leq \lambda f(x_1) + (1 - \lambda)f(x_2), \quad \forall x_1, x_2, \lambda \in [0,1]\)</span>. Basically, imagine a bowl curving upwards. To be a convex optimization problem, both the function to be minimized and the constraints we apply to that function must be convex, which, examining our formulation for the SVM, is satisfied. To be more formal, we require (cite mlss2011): 1. The objective function term <span class="math inline">\(\frac{1}{2} w^T w\)</span> is quadratic in <span class="math inline">\(w\)</span> and thus convex. 2. The term <span class="math inline">\(C \sum \xi_i\)</span> is linear in <span class="math inline">\(\xi\)</span> and thus convex. 3. The sum of these two convex terms results in a convex overall objective function. 4. The constraints <span class="math inline">\(y_i (w^T x_i + b) \ge 1 - \xi_i\)</span> and <span class="math inline">\(\xi_i \ge 0\)</span> are all linear inequalities in <span class="math inline">\(w, b, \xi\)</span>. Linear inequalities define convex feasible regions (specifically, half-spaces), and the intersection of convex sets is also convex.</p>
 <p>Because both the objective function and the feasible region are convex, the entire problem is convex. The convexity of this problem helps ensure that standard optimization algorithms can find a unique optimal solution for the hyperplane.</p>
 </section>
-<section id="handling-non-linearity-the-kernel-trick" class="level3" data-number="3.2.2">
-<h3 data-number="3.2.2" class="anchored" data-anchor-id="handling-non-linearity-the-kernel-trick"><span class="header-section-number">3.2.2</span> Handling Non-Linearity: The Kernel Trick</h3>
+<section id="handling-non-linearity-the-kernel-trick" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="handling-non-linearity-the-kernel-trick"><span class="header-section-number">2.2.2</span> Handling Non-Linearity: The Kernel Trick</h3>
 <p>The linear SVM formulation described above finds a linear boundary. However, in many real-world problems, the relationship between features and classes might be non-linear, meaning a straight line or flat plane isn’t enough to separate the classes effectively. SVMs can handle this using <strong>kernels</strong>.</p>
 <p>The core idea, often called the <strong>“kernel trick,”</strong> is to implicitly map the original input features <span class="math inline">\(x_i\)</span> into a much higher-dimensional space using a mapping function <span class="math inline">\(\phi(x)\)</span> (cite: improving support vector machines). In this higher-dimensional space, the data might become linearly separable, allowing us to find a linear hyperplane there. The “trick” is that we don’t need to explicitly compute the high-dimensional coordinates <span class="math inline">\(\phi(x_i)\)</span>. Instead, kernel functions <span class="math inline">\(K(x_i, x_j)\)</span> compute the dot product of the mapped vectors directly: <span class="math inline">\(K(x_i, x_j) = \phi(x_i)^T \phi(x_j)\)</span>. Since the SVM algorithm’s solution primarily depends on dot products between feature vectors (especially in its dual formulation), we can substitute <span class="math inline">\(x_i^T x_j\)</span> with <span class="math inline">\(K(x_i, x_j)\)</span> everywhere, effectively performing the classification in the high-dimensional space without the computational cost of explicitly transforming the data.</p>
 <p><strong>Common Kernels:</strong> The baseline for this project is the <strong>linear kernel</strong> (<span class="math inline">\(K(x_i, x_j) = x_i^T x_j\)</span>). However, I experimented with two other kernels to see their performance, specifically:</p>

@@ -35,16 +35,7 @@ EEG employs sensors placed directly on the scalp to detect the brain's electrica
 
 ### What is a Support Vector Machine (SVM)?
 
-* Provide a conceptual explanation of SVMs.
-* Explain the core idea: finding an optimal separating hyperplane, maximizing the margin, and the role of support vectors.
-* **SVM Suitability:** Explain, in your own words, *why* an SVM classifier is well-suited for this specific binary classification problem[cite: 140]. Include an explanation, in your own words, of *why* SVMs can be effective with high-dimensional data even when the number of training observations is relatively small (N < D scenario)[cite: 141].
-* **Other Applications:** Briefly describe, in your own words, other potential application areas where this SVM approach might be useful beyond BCI[cite: 141].
-
-### What is a Support Vector Machine (SVM)?
-
 Support Vector Machines (SVMs) are supervised machine learning models designed primarily for classification tasks, meaning they learn to assign data points to predefined categories. Given a new data point, an SVM determines which category it most likely belongs to based on patterns learned from labeled training data - meaning we feed it some starting data that's already assigned to categories, and it learns from that. In the context of this project, our categories are simply "intended left movement" and "intended right movement." The SVM's job is to analyze the features extracted from an EEG signal segment and classify it as belonging to either the "left" or "right" intention category.
-
-At a high level, 
 
 Conceptually, an SVM works by trying to find the "best" boundary that separates the data points of different classes in the feature space. Imagine it like this: you've got a few 2-D data points, and you plot them along the xy plane. Each data point is either red or green. Assume for now that all the red points are clustered in the top right, and all the green points in bottom left. An SVM would draw a boundary separating these data points. 
 
@@ -102,17 +93,6 @@ In two dimensions (like above), this is a simple line. In higher dimensions (lik
 SVMs are particularly well-suited for the challenges presented by EEG data in this BCI project. EEG data is inherently high-dimensional, and SVMs are known to be effective in such high-dimensional spaces, potentially mitigating the "curse of dimensionality" better than some other algorithms. They can perform well even when the number of training samples is not vastly larger than the number of features, a common scenario in BCI experiments, because of the emphasis on maximizing the margin. This can also help to reduce the impact of noise on our classifier.
 
 SVMs have applications beyond BCI and neuroscience. They've been used to classify text in various ways (such as detecting spam emails) (cite: support vector machine active learning), detect faces (cite: face recognition) and even predict geological events (cite: seismic events). As we can see, this technology is widely applicable, and its continued study has many potential benefits.
-
-# Methods
-
-* Provide an overview of the methodology: data acquisition, signal processing overview, SVM classification details, and the two-level cross-validation evaluation strategy.
-
-## Data Acquisition
-
-* **Data Source:** Describe the source and nature of the EEG data used.
-* **EEG Setup:** Detail the specifics: number of electrodes, data channels per electrode, total feature dimensionality (e.g., 204 features)[cite: 31].
-* **Experimental Conditions:** Explain, in your own words, the two conditions under which data was collected (Overt vs. Imagined movement) and *why both* are relevant to BCI research[cite: 142]. Mention expected signal differences (e.g., weaker signals in Imagined)[cite: 10].
-* **Data Structure:** State the number of trials per class per condition (e.g., 120 trials for movement 1, 120 for movement 2, total 240 per condition)[cite: 31]. Explicitly state how you are formulating the classification problem (e.g., defining Class 1 vs. Class 2, acknowledging the unknown left/right mapping)[cite: 52, 154].
 
 # Methods
 
