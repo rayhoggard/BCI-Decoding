@@ -341,8 +341,3 @@ Peter Banyas: I discussed with peter how I could get approximate weights from no
 Will Neuner: I talked with Will on LDOC about his regularization parameters, and we looked more closely at the implementation of two-level CV.
 
 Evan Wen: Discussed results of implementing non-linear kernels and their implications.
-
-# References
-
-::: {#refs}
-:::
