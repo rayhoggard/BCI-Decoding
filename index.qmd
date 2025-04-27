@@ -39,7 +39,7 @@ Okay, so how do we actually interpret these complex brain signals? That's where 
 
 So, how does an SVM actually do this? Conceptually, it tries to find the "best" possible boundary to separate the data points belonging to different classes. Imagine you have a scatter plot with red dots and green dots. If the red dots are mostly in one area and the green dots in another, an SVM tries to draw a line (or, in higher dimensions, a plane or hyperplane) that separates them.
 
-![Figure 1: SVM](output/visualizations/SVM_example.png){#fig-svm-example}
+![SVM](output/visualizations/SVM_example.png){#fig-svm-example}
 
 See the plot on the right (in the imagined figure)? That blue line is the decision boundary found by the SVM. What makes SVMs special is *how* they find this boundary. They don't just pick any line that separates the groups; they specifically look for the line that creates the largest possible "buffer zone" or *margin* between itself and the closest points from *each* class. These closest points, the ones right up against the edge of this buffer zone, are called the "support vectors" – they're critical because they dictate exactly where the boundary and margin end up. This principle of maximizing the margin often helps the SVM generalize better, meaning it performs well not just on the data it was trained on, but also on new, unseen data. While the math behind it involves optimization, the core idea is finding this widest possible separation. We implement SVMs in our project using sklearn [@noauthor_svc_nodate].
 
@@ -57,7 +57,7 @@ The foundation for everything is the EEG data. This data came from a single huma
 
 * **EEG Setup:** The recording setup used 102 electrodes placed across the scalp – you can see the layout in the plot below (each blue dot is an electrode). Each electrode provided two pieces of information related to the local electrical field gradient (one for the x-direction, one for the y-direction). So, for every moment in time or trial we recorded, we ended up with 204 distinct data channels or features.
 
-![Figure 2: Electrode Positioning](output/visualizations/electrodes.png){#fig-electrodes}
+![Electrode Positioning](output/visualizations/electrodes.png){#fig-electrodes}
 
 * **Experimental Conditions:** The data was collected under two different conditions:
     1.  **Overt Movement:** In this case, the subject physically moved their left or right arm. We'd expect the brain signals during actual movement to be relatively strong and potentially easier to classify.
@@ -153,9 +153,9 @@ We'll start with the baseline linear SVM.
 
 * **ROC Curves:** Figures 1 and 2 show the ROC curves for the linear SVM when trained and tested on Overt and Imagined data, respectively.
 
-    ![Figure 1: Individual Fold and Overall ROC Curves for Same-Train Overt (Linear SVM)](output/plots/overt_lin_roc_individual.png){#fig-roc-overt}
+    ![Individual Fold and Overall ROC Curves for Same-Train Overt (Linear SVM)](output/plots/overt_lin_roc_individual.png){#fig-roc-overt}
 
-    ![Figure 2: Individual Fold and Overall ROC Curves for Same-Train Imagined (Linear SVM)](output/plots/img_lin_roc_individual.png){#fig-roc-imagined}
+    ![Individual Fold and Overall ROC Curves for Same-Train Imagined (Linear SVM)](output/plots/img_lin_roc_individual.png){#fig-roc-imagined}
 
     *Interpretation:* As previously discussed, the linear SVM performed better on Overt data (Avg AUC in Fig. 1) than Imagined data (Avg AUC in Fig. 2), likely due to stronger signals. Performance was reasonably consistent across folds for Overt, but more variable for Imagined.
 
@@ -194,9 +194,9 @@ We'll start with the baseline linear SVM.
 
 * **ROC Curves:** Figures 3 and 4 show the ROC curves for the cross-training scenarios using the linear SVM.
 
-    ![Figure 3: ROC Curve for Cross-Training: Train Imagined -> Test Overt (Linear SVM)](output/plots/xt_img_ov_lin_roc.png){#fig-roc-xt-img-ov}
+    ![ROC Curve for Cross-Training: Train Imagined -> Test Overt (Linear SVM)](output/plots/xt_img_ov_lin_roc.png){#fig-roc-xt-img-ov}
 
-    ![Figure 4: ROC Curve for Cross-Training: Train Overt -> Test Imagined (Linear SVM)](output/plots/xt_ov_img_lin_roc.png){#fig-roc-xt-ov-img}
+    ![ROC Curve for Cross-Training: Train Overt -> Test Imagined (Linear SVM)](output/plots/xt_ov_img_lin_roc.png){#fig-roc-xt-ov-img}
 
     *Comparison:* As noted before, training on Imagined and testing on Overt (Fig 3, ~91.3% Acc, AUC 0.97) performed slightly better than training on Overt and testing on Imagined (Fig 4, ~89.2% Acc, AUC 0.96). Both fell between the same-train performances, suggesting some shared patterns but also distinct differences between the conditions.
 
@@ -204,10 +204,10 @@ We'll start with the baseline linear SVM.
 
 * **Spatial and Stem Plots:** Figures 5-8 visualize the weights for the linear SVM.
 
-    ![Figure 5: SVM Weight Magnitude on Brain Surface (Overt Data, Fold 1, Linear SVM)](output/plots/overt_lin_weights_brain.png){#fig-weights-brain-overt}
-    ![Figure 6: Signed SVM Weights per Channel (Overt Data, Fold 1, Linear SVM), Top 6 Highlighted](output/plots/overt_lin_weights_stem.png){#fig-weights-stem-overt}
-    ![Figure 7: SVM Weight Magnitude on Brain Surface (Imagined Data, Fold 1, Linear SVM)](output/plots/img_lin_weights_brain.png){#fig-weights-brain-imagined}
-    ![Figure 8: Signed SVM Weights per Channel (Imagined Data, Fold 1, Linear SVM), Top 6 Highlighted](output/plots/img_lin_weights_stem.png){#fig-weights-stem-imagined}
+    ![SVM Weight Magnitude on Brain Surface (Overt Data, Fold 1, Linear SVM)](output/plots/overt_lin_weights_brain.png){#fig-weights-brain-overt}
+    ![Signed SVM Weights per Channel (Overt Data, Fold 1, Linear SVM), Top 6 Highlighted](output/plots/overt_lin_weights_stem.png){#fig-weights-stem-overt}
+    ![SVM Weight Magnitude on Brain Surface (Imagined Data, Fold 1, Linear SVM)](output/plots/img_lin_weights_brain.png){#fig-weights-brain-imagined}
+    ![Signed SVM Weights per Channel (Imagined Data, Fold 1, Linear SVM), Top 6 Highlighted](output/plots/img_lin_weights_stem.png){#fig-weights-stem-imagined}
 
     *Interpretation:* The weights highlighted channels primarily over sensorimotor areas, consistent with neuroscience. The primary motor cortex lies in the middle of the brain, which is the most heavily weighted part. There was significant overlap in the most important channels (e.g., 128, 136, 140) between Overt and Imagined conditions, supporting the idea of shared neural substrates.
 
@@ -219,8 +219,8 @@ Now let's consider the performance when using the Radial Basis Function (RBF) ke
 
 * **ROC Curves:** Let's assume Figures 9 and 10 show the ROC curves for the RBF SVM on Overt and Imagined data, respectively.
 
-    ![Figure 9: ROC for same-train rbf overt](output/plots/overt_rbf_roc_individual.png){#fig-weights-stem-imagined}
-    ![Figure 10: ROC for same-train rbf imagined](output/plots/img_rbf_roc_individual.png){#fig-weights-stem-imagined}
+    ![ROC for same-train rbf overt](output/plots/overt_rbf_roc_individual.png){#fig-weights-stem-imagined}
+    ![ROC for same-train rbf imagined](output/plots/img_rbf_roc_individual.png){#fig-weights-stem-imagined}
 
     *Interpretation:* The average AUC for the Overt data (Figure 9) is approximately 0.99, suggesting excellent performance, slightly higher than the linear kernel's average. For the Imagined data (Figure 10), the average AUC is around 0.94, which is also higher than the linear kernel's average (~0.92 based on visual inspection of Fig 2), indicating the RBF kernel might be capturing useful non-linearities, especially in the more challenging Imagined condition. Variability between folds still seems present, particularly for Imagined data.
 
@@ -254,8 +254,8 @@ Now let's consider the performance when using the Radial Basis Function (RBF) ke
 
 ### Feature Importance (RBF SVM)
 
-![Figure 11: Weight visualization for same-train rbf overt](output/plots/overt_rbf_weights_brain.png){#fig-weights-rbf-overt}
-![Figure 12: Weight visualization for same-train rbf overt](output/plots/img_rbf_weights_brain.png){#fig-weights-rbf-overt}
+![Weight visualization for same-train rbf overt](output/plots/overt_rbf_weights_brain.png){#fig-weights-rbf-overt}
+![Weight visualization for same-train rbf overt](output/plots/img_rbf_weights_brain.png){#fig-weights-rbf-overt}
 
 * **Weight Interpretation:** Visualizing feature importance for non-linear kernels like RBF isn't as straightforward as plotting the weights ($w$) in the linear case. With a linear SVM, the weights directly correspond to the importance of a feature, but the same association doesn't exist with different kernels. Therefore, we look at the performance metrics and also use approximations to map weights back to support vectors. However, these heatmaps still show a general distribution of "weights" in the same locations as the linear SVM.
 
@@ -267,8 +267,8 @@ Finally, let's consider the Polynomial kernel. This kernel also allows for non-l
 
 * **ROC Curves:** Assume Figures 13 and 14 show the ROC curves for the Polynomial SVM on Overt and Imagined data.
 
-    ![Figure 13: ROC for same-train poly overt](output/plots/overt_poly_roc_individual.png){#fig-weights-stem-imagined}
-    ![Figure 14: ROC for same-train poly overt](output/plots/img_poly_roc_individual.png){#fig-weights-stem-imagined}
+    ![ROC for same-train poly overt](output/plots/overt_poly_roc_individual.png){#fig-weights-stem-imagined}
+    ![ROC for same-train poly overt](output/plots/img_poly_roc_individual.png){#fig-weights-stem-imagined}
 
     *Interpretation:* The average AUC for the Overt data (Figure 13) is approximately 0.98, slightly below the RBF kernel but comparable to the linear kernel. However, for the Imagined data (Figure 14), the average AUC drops significantly to around 0.89, which is much worse than both the linear (~0.92) and RBF (~0.94) kernels. This suggests the polynomial kernel might be struggling or potentially overfitting on the more difficult Imagined dataset.
 
@@ -300,8 +300,8 @@ Finally, let's consider the Polynomial kernel. This kernel also allows for non-l
     *Interpretation:* The average accuracy for the Polynomial kernel is ~95.1% on Overt data (Table 5), which is very close to the linear kernel's performance. However, on the Imagined data (Table 6), the average accuracy drops to ~81.7%, noticeably lower than both the linear (~88.8%) and RBF (~85.4%) kernels. This confirms the trend seen in the AUCs – the polynomial kernel seems less effective for the imagined movement data in this experiment. Optimal $C$ values varied widely, including a large value of 100 in one Overt fold.
 
 
-    ![Figure 15: Weight visualization for same-train poly overt](output/plots/overt_poly_weights_brain.png){#fig-weights-poly-overt}
-    ![Figure 16: Weight visualization for same-train poly overt](output/plots/img_poly_weights_brain.png){#fig-weights-poly-img}
+    ![Weight visualization for same-train poly overt](output/plots/overt_poly_weights_brain.png){#fig-weights-poly-overt}
+    ![Weight visualization for same-train poly overt](output/plots/img_poly_weights_brain.png){#fig-weights-poly-img}
 
     *Interpretation:* Similar as all the other heatmaps, we see the weights concentrated in the motor cortices.
 

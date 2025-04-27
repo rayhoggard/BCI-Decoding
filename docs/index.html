@@ -239,7 +239,7 @@ window.Quarto = {
 <img src="output/visualizations/SVM_example.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-svm-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Figure 1: SVM
+Figure&nbsp;1: SVM
 </figcaption>
 </figure>
 </div>
@@ -264,7 +264,7 @@ Figure&nbsp;1: Figure 1: SVM
 <img src="output/visualizations/electrodes.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-electrodes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Figure 2: Electrode Positioning
+Figure&nbsp;2: Electrode Positioning
 </figcaption>
 </figure>
 </div>
@@ -359,7 +359,7 @@ y_i (w^T x_i + b) \ge 1 - \xi_i, \quad \text{for } i = 1, \dots, N
 <img src="output/plots/overt_lin_roc_individual.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-roc-overt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: Figure 1: Individual Fold and Overall ROC Curves for Same-Train Overt (Linear SVM)
+Figure&nbsp;3: Individual Fold and Overall ROC Curves for Same-Train Overt (Linear SVM)
 </figcaption>
 </figure>
 </div>
@@ -369,7 +369,7 @@ Figure&nbsp;3: Figure 1: Individual Fold and Overall ROC Curves for Same-Train O
 <img src="output/plots/img_lin_roc_individual.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-roc-imagined-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4: Figure 2: Individual Fold and Overall ROC Curves for Same-Train Imagined (Linear SVM)
+Figure&nbsp;4: Individual Fold and Overall ROC Curves for Same-Train Imagined (Linear SVM)
 </figcaption>
 </figure>
 </div>
@@ -492,7 +492,7 @@ Figure&nbsp;4: Figure 2: Individual Fold and Overall ROC Curves for Same-Train I
 <img src="output/plots/xt_img_ov_lin_roc.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-roc-xt-img-ov-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5: Figure 3: ROC Curve for Cross-Training: Train Imagined -&gt; Test Overt (Linear SVM)
+Figure&nbsp;5: ROC Curve for Cross-Training: Train Imagined -&gt; Test Overt (Linear SVM)
 </figcaption>
 </figure>
 </div>
@@ -502,7 +502,7 @@ Figure&nbsp;5: Figure 3: ROC Curve for Cross-Training: Train Imagined -&gt; Test
 <img src="output/plots/xt_ov_img_lin_roc.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-roc-xt-ov-img-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6: Figure 4: ROC Curve for Cross-Training: Train Overt -&gt; Test Imagined (Linear SVM)
+Figure&nbsp;6: ROC Curve for Cross-Training: Train Overt -&gt; Test Imagined (Linear SVM)
 </figcaption>
 </figure>
 </div>
@@ -513,7 +513,7 @@ Figure&nbsp;6: Figure 4: ROC Curve for Cross-Training: Train Overt -&gt; Test Im
 <h3 data-number="3.1.3" class="anchored" data-anchor-id="feature-importance-linear-svm-weights"><span class="header-section-number">3.1.3</span> Feature Importance (Linear SVM Weights)</h3>
 <ul>
 <li><p><strong>Spatial and Stem Plots:</strong> Figures 5-8 visualize the weights for the linear SVM.</p>
-<p><img src="output/plots/overt_lin_weights_brain.png" id="fig-weights-brain-overt" class="img-fluid" alt="Figure 5: SVM Weight Magnitude on Brain Surface (Overt Data, Fold 1, Linear SVM)"> <img src="output/plots/overt_lin_weights_stem.png" id="fig-weights-stem-overt" class="img-fluid" alt="Figure 6: Signed SVM Weights per Channel (Overt Data, Fold 1, Linear SVM), Top 6 Highlighted"> <img src="output/plots/img_lin_weights_brain.png" id="fig-weights-brain-imagined" class="img-fluid" alt="Figure 7: SVM Weight Magnitude on Brain Surface (Imagined Data, Fold 1, Linear SVM)"> <img src="output/plots/img_lin_weights_stem.png" id="fig-weights-stem-imagined" class="img-fluid" alt="Figure 8: Signed SVM Weights per Channel (Imagined Data, Fold 1, Linear SVM), Top 6 Highlighted"></p>
+<p><img src="output/plots/overt_lin_weights_brain.png" id="fig-weights-brain-overt" class="img-fluid" alt="SVM Weight Magnitude on Brain Surface (Overt Data, Fold 1, Linear SVM)"> <img src="output/plots/overt_lin_weights_stem.png" id="fig-weights-stem-overt" class="img-fluid" alt="Signed SVM Weights per Channel (Overt Data, Fold 1, Linear SVM), Top 6 Highlighted"> <img src="output/plots/img_lin_weights_brain.png" id="fig-weights-brain-imagined" class="img-fluid" alt="SVM Weight Magnitude on Brain Surface (Imagined Data, Fold 1, Linear SVM)"> <img src="output/plots/img_lin_weights_stem.png" id="fig-weights-stem-imagined" class="img-fluid" alt="Signed SVM Weights per Channel (Imagined Data, Fold 1, Linear SVM), Top 6 Highlighted"></p>
 <p><em>Interpretation:</em> The weights highlighted channels primarily over sensorimotor areas, consistent with neuroscience. The primary motor cortex lies in the middle of the brain, which is the most heavily weighted part. There was significant overlap in the most important channels (e.g., 128, 136, 140) between Overt and Imagined conditions, supporting the idea of shared neural substrates.</p></li>
 </ul>
 </section>
@@ -525,7 +525,7 @@ Figure&nbsp;6: Figure 4: ROC Curve for Cross-Training: Train Overt -&gt; Test Im
 <h3 data-number="3.2.1" class="anchored" data-anchor-id="same-train-scenarios-rbf-svm"><span class="header-section-number">3.2.1</span> Same-Train Scenarios (RBF SVM)</h3>
 <ul>
 <li><p><strong>ROC Curves:</strong> Let’s assume Figures 9 and 10 show the ROC curves for the RBF SVM on Overt and Imagined data, respectively.</p>
-<p><img src="output/plots/overt_rbf_roc_individual.png" id="fig-weights-stem-imagined" class="img-fluid" alt="Figure 9: ROC for same-train rbf overt"> <img src="output/plots/img_rbf_roc_individual.png" id="fig-weights-stem-imagined" class="img-fluid" alt="Figure 10: ROC for same-train rbf imagined"></p>
+<p><img src="output/plots/overt_rbf_roc_individual.png" id="fig-weights-stem-imagined" class="img-fluid" alt="ROC for same-train rbf overt"> <img src="output/plots/img_rbf_roc_individual.png" id="fig-weights-stem-imagined" class="img-fluid" alt="ROC for same-train rbf imagined"></p>
 <p><em>Interpretation:</em> The average AUC for the Overt data (Figure 9) is approximately 0.99, suggesting excellent performance, slightly higher than the linear kernel’s average. For the Imagined data (Figure 10), the average AUC is around 0.94, which is also higher than the linear kernel’s average (~0.92 based on visual inspection of Fig 2), indicating the RBF kernel might be capturing useful non-linearities, especially in the more challenging Imagined condition. Variability between folds still seems present, particularly for Imagined data.</p></li>
 <li><p><strong>Accuracy:</strong> Similarly, assume Tables 3 and 4 present the accuracy results and the optimal <span class="math inline">\((C, \gamma)\)</span> pairs chosen for each fold.</p>
 <table class="caption-top table">
@@ -635,7 +635,7 @@ Figure&nbsp;6: Figure 4: ROC Curve for Cross-Training: Train Overt -&gt; Test Im
 </section>
 <section id="feature-importance-rbf-svm" class="level3" data-number="3.2.2">
 <h3 data-number="3.2.2" class="anchored" data-anchor-id="feature-importance-rbf-svm"><span class="header-section-number">3.2.2</span> Feature Importance (RBF SVM)</h3>
-<p><img src="output/plots/overt_rbf_weights_brain.png" id="fig-weights-rbf-overt" class="img-fluid" alt="Figure 11: Weight visualization for same-train rbf overt"> <img src="output/plots/img_rbf_weights_brain.png" id="fig-weights-rbf-overt" class="img-fluid" alt="Figure 12: Weight visualization for same-train rbf overt"></p>
+<p><img src="output/plots/overt_rbf_weights_brain.png" id="fig-weights-rbf-overt" class="img-fluid" alt="Weight visualization for same-train rbf overt"> <img src="output/plots/img_rbf_weights_brain.png" id="fig-weights-rbf-overt" class="img-fluid" alt="Weight visualization for same-train rbf overt"></p>
 <ul>
 <li><strong>Weight Interpretation:</strong> Visualizing feature importance for non-linear kernels like RBF isn’t as straightforward as plotting the weights (<span class="math inline">\(w\)</span>) in the linear case. With a linear SVM, the weights directly correspond to the importance of a feature, but the same association doesn’t exist with different kernels. Therefore, we look at the performance metrics and also use approximations to map weights back to support vectors. However, these heatmaps still show a general distribution of “weights” in the same locations as the linear SVM.</li>
 </ul>
@@ -648,7 +648,7 @@ Figure&nbsp;6: Figure 4: ROC Curve for Cross-Training: Train Overt -&gt; Test Im
 <h3 data-number="3.3.1" class="anchored" data-anchor-id="same-train-scenarios-polynomial-svm"><span class="header-section-number">3.3.1</span> Same-Train Scenarios (Polynomial SVM)</h3>
 <ul>
 <li><p><strong>ROC Curves:</strong> Assume Figures 13 and 14 show the ROC curves for the Polynomial SVM on Overt and Imagined data.</p>
-<p><img src="output/plots/overt_poly_roc_individual.png" id="fig-weights-stem-imagined" class="img-fluid" alt="Figure 13: ROC for same-train poly overt"> <img src="output/plots/img_poly_roc_individual.png" id="fig-weights-stem-imagined" class="img-fluid" alt="Figure 14: ROC for same-train poly overt"></p>
+<p><img src="output/plots/overt_poly_roc_individual.png" id="fig-weights-stem-imagined" class="img-fluid" alt="ROC for same-train poly overt"> <img src="output/plots/img_poly_roc_individual.png" id="fig-weights-stem-imagined" class="img-fluid" alt="ROC for same-train poly overt"></p>
 <p><em>Interpretation:</em> The average AUC for the Overt data (Figure 13) is approximately 0.98, slightly below the RBF kernel but comparable to the linear kernel. However, for the Imagined data (Figure 14), the average AUC drops significantly to around 0.89, which is much worse than both the linear (~0.92) and RBF (~0.94) kernels. This suggests the polynomial kernel might be struggling or potentially overfitting on the more difficult Imagined dataset.</p></li>
 <li><p><strong>Accuracy:</strong> Assume Tables 5 and 6 show the accuracy results and the optimal hyperparameter sets (<span class="math inline">\(C, \gamma, d, r\)</span>) for each fold.</p>
 <table class="caption-top table">
@@ -754,7 +754,7 @@ Figure&nbsp;6: Figure 4: ROC Curve for Cross-Training: Train Overt -&gt; Test Im
 </tbody>
 </table>
 <p><em>Interpretation:</em> The average accuracy for the Polynomial kernel is ~95.1% on Overt data (Table 5), which is very close to the linear kernel’s performance. However, on the Imagined data (Table 6), the average accuracy drops to ~81.7%, noticeably lower than both the linear (~88.8%) and RBF (~85.4%) kernels. This confirms the trend seen in the AUCs – the polynomial kernel seems less effective for the imagined movement data in this experiment. Optimal <span class="math inline">\(C\)</span> values varied widely, including a large value of 100 in one Overt fold.</p>
-<p><img src="output/plots/overt_poly_weights_brain.png" id="fig-weights-poly-overt" class="img-fluid" alt="Figure 15: Weight visualization for same-train poly overt"> <img src="output/plots/img_poly_weights_brain.png" id="fig-weights-poly-img" class="img-fluid" alt="Figure 16: Weight visualization for same-train poly overt"></p>
+<p><img src="output/plots/overt_poly_weights_brain.png" id="fig-weights-poly-overt" class="img-fluid" alt="Weight visualization for same-train poly overt"> <img src="output/plots/img_poly_weights_brain.png" id="fig-weights-poly-img" class="img-fluid" alt="Weight visualization for same-train poly overt"></p>
 <p><em>Interpretation:</em> Similar as all the other heatmaps, we see the weights concentrated in the motor cortices.</p></li>
 </ul>
 </section>
