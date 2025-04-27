@@ -332,7 +332,7 @@ In conclusion, this project explored the application of various SVM kernels to t
 
 # Collaborations
 
-There were three main people I collaborated with:
+There were four main people I collaborated with:
 
 Wanghley Soares Martin: I learned about this entire report format from him, as well as some information on using github pages and quarto to produce academic writing. He was very helpful in my exploration phase.
 
